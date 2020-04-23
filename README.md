@@ -12,10 +12,11 @@
 # 使用
   添加如下配置将OKPermission引入到你的项目当中：
   
-、、、groovy
+```groovy
 dependencies {
      implementation 'com.ruanyandong:OkPermission:1.0.0'
 }
-、、、
-  
+```
+
+
   
