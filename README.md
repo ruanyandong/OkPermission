@@ -46,3 +46,4 @@ OkPermission.requestPermission(MainActivity.this,Manifest.permission.CALL_PHONE)
             }
         }
 ```
+申请的权限可以是一个或者多个，根据实际情况而定。
