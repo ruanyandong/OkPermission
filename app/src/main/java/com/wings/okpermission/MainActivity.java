@@ -2,10 +2,18 @@ package com.wings.okpermission;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
+
+import com.wings.okpermission.java.OkPermission;
+import com.wings.okpermission.java.PermissionCallBack;
+
+import java.util.List;
 
 
 /**
@@ -16,35 +24,38 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_main);
-//        findViewById(R.id.btn).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                OkPermission.request(MainActivity.this, new PermissionCallBack() {
-//                    @Override
-//                    public void onResult(boolean allGranted, List<String> deniedList) {
-//                        if (allGranted){
-//                            call();
-//                        }else {
-//                            Toast.makeText(MainActivity.this,"Have no permissions!",Toast.LENGTH_LONG).show();
-//                        }
-//                    }
-//                }, Manifest.permission.CALL_PHONE);
-//            }
-//        });
-//
-//
+        setContentView(R.layout.activity_main);
+        findViewById(R.id.btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                OkPermission.request(MainActivity.this, new PermissionCallBack() {
+                    @Override
+                    public void onResult(boolean allGranted, List<String> deniedList) {
+                        if (allGranted){
+                            call();
+                        }else {
+                            Toast.makeText(MainActivity.this,"Have no permissions!",Toast.LENGTH_LONG).show();
+                        }
+                    }
+                }, Manifest.permission.CALL_PHONE);
+
+
+            }
+        });
+
+
 
     }
 
-//    @SuppressLint("MissingPermission")
-//    private void call(){
-//        try {
-//            Intent intent = new Intent(Intent.ACTION_CALL);
-//            intent.setData(Uri.parse("tel:10086"));
-//            startActivity(intent);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
+    @SuppressLint("MissingPermission")
+    private void call(){
+        try {
+            Intent intent = new Intent(Intent.ACTION_CALL);
+            intent.setData(Uri.parse("tel:10086"));
+            startActivity(intent);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
