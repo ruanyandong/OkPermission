@@ -1,0 +1,50 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
+apply plugin: 'com.novoda.bintray-release'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+//依赖时要使用具体版本，不然上传JCenter会失败
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation "androidx.core:core-ktx:1.2.0"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+}
+repositories {
+    mavenCentral()
+}
+
+//添加
+publish {
+    repoName="OkPermission"//仓库名
+    userOrg = 'ruanyandong'//bintray.com用户名
+    groupId = 'com.ruanyandong'//jcenter上的路径
+    artifactId = 'OkPermission'//项目名称
+    publishVersion = '1.0.0'//版本号
+    desc = 'Oh hi,'//描述，不重要
+    website = 'https://github.com/ruanyandong/OkPermission'//网站，不重要；尽量模拟github上的地址，例如我这样的；当然你有地址最好了
+}
+// JCenter账号：ruanyandongai@gmail.com google666_
+//gradlew clean build bintrayUpload -PbintrayUser=ruanyandong -PbintrayKey=28e51b2bc3de7c72a99f0de049ab8c355a2be6d8 -PdryRun=false
+//28e51b2bc3de7c72a99f0de049ab8c355a2be6d8
