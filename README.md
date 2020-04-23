@@ -10,13 +10,39 @@
 这是一种轻量级的做法，不需要担心隐藏的Fragment会对Activity的性能造成什么影响。
 
 # 使用
-  添加如下配置将OKPermission引入到你的项目当中：
+  首先添加如下配置将OKPermission引入到你的项目当中：
   
 ```groovy
 dependencies {
      implementation 'com.ruanyandong:OkPermission:1.0.0'
 }
 ```
+  然后使用如下方式就可以在项目中使用了
 
+  java方式使用：
+```java
+OkPermission.request(MainActivity.this, new PermissionCallBack() {
+                    @Override
+                    public void onResult(boolean allGranted, List<String> deniedList) {
+                        if (allGranted){
+                            //授权执行逻辑
+                        }else {
+                        //没有授权执行逻辑
+                            Toast.makeText(MainActivity.this,"Have no permissions!",Toast.LENGTH_LONG).show();
+                        }
+                    }
+                }, Manifest.permission.CALL_PHONE);
+```
+  Kotlin使用方式
+```kotlin
+OkPermission.requestPermission(MainActivity.this,Manifest.permission.CALL_PHONE){
 
-  
+            allGranted,deniedList ->
+
+            if (allGranted){
+                //授权执行逻辑
+            } else{
+             //没有授权执行逻辑
+            }
+        }
+```
