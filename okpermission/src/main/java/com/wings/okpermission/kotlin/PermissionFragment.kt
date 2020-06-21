@@ -3,8 +3,6 @@ package com.wings.okpermission.kotlin
 import androidx.fragment.app.Fragment
 import java.util.*
 
-
-
 typealias PermissionCallBack = (Boolean, List<String>) -> Unit
 private const val REQUEST_CODE : Int = 1
 

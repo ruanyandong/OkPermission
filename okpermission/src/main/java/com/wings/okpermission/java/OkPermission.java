@@ -5,6 +5,9 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 
 
+/**
+ * @author AI
+ */
 public class OkPermission {
 
     private static final String TAG = "com.wings.okpermission.java.PermissionFragment";

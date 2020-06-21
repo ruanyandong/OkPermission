@@ -6,8 +6,8 @@ buildscript {
     repositories {
         google()
         jcenter()
-        jcenter(){ url 'http://jcenter.bintray.com/'} //JCenter下载慢测试
-        maven { url "https://dl.bintray.com/ruanyandong/OkPermission" }//审核前可使用
+//        jcenter(){ url 'http://jcenter.bintray.com/'} //JCenter下载慢测试
+//        maven { url "https://dl.bintray.com/ruanyandong/OkPermission" }//审核前可使用
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.6.2'
@@ -26,6 +26,7 @@ allprojects {
         
     }
 }
+
 
 task clean(type: Delete) {
     delete rootProject.buildDir

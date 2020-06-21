@@ -4,6 +4,7 @@ import androidx.fragment.app.FragmentActivity
 
 
 object OkPermission {
+
     private const val TAG = "PermissionFragment"
 
     fun requestPermission(activity:FragmentActivity,vararg permissions:String,callBack: PermissionCallBack){

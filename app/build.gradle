@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
 
 android {
     compileSdkVersion 29
@@ -32,7 +33,7 @@ dependencies {
     implementation "androidx.core:core-ktx:1.2.0"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     //implementation project(path: ':okpermission')
-    implementation 'com.ruanyandong:OkPermission:1.0.0'
+    implementation 'com.ruanyandong:OkPermission:1.0.1'
 }
 repositories {
     mavenCentral()

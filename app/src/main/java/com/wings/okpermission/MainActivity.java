@@ -8,12 +8,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
 
-import com.wings.okpermission.java.OkPermission;
-import com.wings.okpermission.java.PermissionCallBack;
-
-import java.util.List;
 
 
 /**
@@ -29,16 +24,29 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                OkPermission.request(MainActivity.this, new PermissionCallBack() {
-                    @Override
-                    public void onResult(boolean allGranted, List<String> deniedList) {
-                        if (allGranted){
-                            call();
-                        }else {
-                            Toast.makeText(MainActivity.this,"Have no permissions!",Toast.LENGTH_LONG).show();
-                        }
-                    }
-                }, Manifest.permission.CALL_PHONE);
+                // 1.0
+//                OkPermission.request(MainActivity.this, new PermissionCallBack() {
+//                    @Override
+//                    public void onResult(boolean allGranted, List<String> deniedList) {
+//                        if (allGranted){
+//                            call();
+//                        }else {
+//                            Toast.makeText(MainActivity.this,"Have no permissions!",Toast.LENGTH_LONG).show();
+//                        }
+//                    }
+//                }, Manifest.permission.CALL_PHONE);
+
+                // 2.0
+//                PermissionX.init(MainActivity.this).permissions(Manifest.permission.CALL_PHONE).request(new RequestCallback() {
+//                    @Override
+//                    public void onResult(boolean allGranted, List<String> grantedList, List<String> deniedList) {
+//                        if (allGranted){
+//                            call();
+//                        }else {
+//                            Toast.makeText(MainActivity.this,"Have no permissions!",Toast.LENGTH_LONG).show();
+//                        }
+//                    }
+//                });
 
 
             }

@@ -7,6 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+/**
+ * @author AI
+ */
 public class PermissionFragment extends Fragment {
 
     private PermissionCallBack callBack;
